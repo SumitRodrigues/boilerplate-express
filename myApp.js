@@ -3,13 +3,15 @@ let app = express();
 
 // console.log('Hello World!');
 
-// app.get('/', function(req, res) {
-//     res.sendFile(absolutePath);
-//   });
+app.get('/json', function(req, res) {
+    res.json({
+        "message": "Hello json"
+    })
+  });
 
-absolutePath = __dirname + '/public'
+// absolutePath = __dirname + '/json'
 
-app.use('/public', express.static(absolutePath))
+// app.use('/json', express.static(absolutePath))
 
 
 
