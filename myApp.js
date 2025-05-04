@@ -55,12 +55,15 @@ let app = express();
 // bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+
+// Get Data from POST Requests
+
 app.post('/name', function(req, res){
     res.json({
         name: req.body.first + " " + req.body.last
     })
 })
-
 
 
 
