@@ -1,5 +1,7 @@
 require('dotenv').config()
+require ('body-parser');
 
+const bodyParser = require('body-parser');
 let express = require('express');
 let app = express();
 
@@ -42,12 +44,22 @@ let app = express();
 //     })
 // })
 
-app.get('/name', function(req, res){
+// app.get('/name', function(req, res){
+//     res.json({
+//         name: req.query.first + " " + req.query.last
+//     })
+// })
+
+// Use body-parser to Parse POST Requests
+
+// bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.post('/name', function(req, res){
     res.json({
-        name: req.query.first + " " + req.query.last
+        name: req.body.first + " " + req.body.last
     })
 })
-
 
 
 
